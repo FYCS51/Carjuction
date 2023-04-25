@@ -1,0 +1,30 @@
+{% extends "adminbase.html" %}
+{% block title %}AdminHome{% endblock %}
+{% block content %}
+<center><h1><b><i>CarJunction</i></b></h1></center>
+<table class="table table-success table-striped" border="5px">
+    <tr>
+      <th>ID</th>
+      <th>COMPANY</th>
+      <th>MODEL</th>
+      <th>YEAR</th>
+      <th>PRICE</th>
+      <th>IMAGES</th>
+      <th>ACTIONS</th>
+    </tr>
+    {% for product in products %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ product.com }}</td>
+        <td>{{ product.mod }}</td>
+        <td>{{ product.year }}</td>
+        <td>{{ product.price }}</td>
+        <td><img src="{{ url_for('static',filename='images/' + product.img1) }}" width="50" height="40" /></td> 
+        <<td>
+          <a href="{{ url_for('auth.editproduct', product_id=product.id) }}">Edit</a>&nbsp;
+          <a href="{{ url_for('auth.delete_product', product_id=product.id) }}">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

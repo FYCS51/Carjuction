@@ -1,0 +1,27 @@
+{% extends "adminbase.html" %}
+{% block title %}Deatil of Caronsell{% endblock %}
+{% block content %}
+<h1>Selling page</h1>
+<table class="table table-success table-striped" border="5px">
+    <tr>
+      <th>ID</th>
+      <th>PHONE</th>
+      <th>NAME</th>
+      <th>ADDRESS</th>
+      <th>PRICE</th>
+      <th>ACTIONS</th>
+    </tr>
+    {% for sell in custselling %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ sell.phone }}</td>
+        <td>{{ sell.name  }}</td>
+        <td>{{ sell.address  }}</td>
+        <td>{{ sell.price  }}</td>
+        <td>
+            <a href="{{ url_for('auth.delete_sell', sell_id=sell.id) }}">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

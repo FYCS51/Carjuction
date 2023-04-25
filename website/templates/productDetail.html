@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center><h1><b><i>PRODUCT DETAIL</i></b></h1></center>
+    <div class="row">
+       
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/' + products.img1) }}"  class="card-img-top" height="250"> 
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/' + products.img2) }}"  class="card-img-top" height="250"> 
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="{{ url_for('static',filename='images/' + products.img3) }}"  class="card-img-top" height="250"> 
+                </div>
+            </div>
+            <b><center><p>Company Name : {{products.com}}</p>
+            <p>Model Name : {{products.mod}}</p>
+            <p>Year : {{products.year}}</p>
+            <p>Price : ₹{{products.price}}</p>
+            <div>Description : {{products.desc}}</div>
+            </center></b>
+            <br><br><br><br><br><br><br><br><br>
+            <h2>Contact Number : 9890460253
+            <Address>Address : Naresh Motors, Near Bhavans College , Andheri West </Address>
+            </h2>
+    </div>
+{% endblock %}
